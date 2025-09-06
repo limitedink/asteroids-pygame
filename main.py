@@ -3,6 +3,7 @@ import pygame
 from constants import *
 from player import *
 from asteroidfield import *
+from asteroid import *
 from circleshape import *
 def main():
     print("Starting Asteroids!")
@@ -46,6 +47,11 @@ def main():
             if player.colliding(asteroid):
                 print("Game over!")
                 sys.exit()
+            for shot in shots:
+                if shot.colliding(asteroid):
+                    shot.kill() 
+                    asteroid.split()
+
 
 
 if __name__ == "__main__":
